@@ -38,6 +38,7 @@ public class Player : MonoBehaviour
         if(Input.GetAxis("Horizontal") > 0)
         {
             anim.SetBool("Andando", true);
+            transform.eulerAngles = new Vector3(0f, 0f, 0f);
         }
         
         //Verificar se o player está se movendo para a direita ou para a esquerda e ajustar a animação
