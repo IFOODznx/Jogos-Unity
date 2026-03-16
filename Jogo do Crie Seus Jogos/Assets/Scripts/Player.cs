@@ -89,6 +89,12 @@ public class Player : MonoBehaviour
             isPulo = false;
             anim.SetBool("Pulando", false);
         }
+
+        if(collision.gameObject.tag == "Espinhos")
+        {
+            GameController.instance.GameOver();
+            Destroy(gameObject);
+        }
     }
 
     //Detectar se o player saiu do chão ou não

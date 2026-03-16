@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
     public int totalPontuacao;
     public static GameController instance;
     public TextMeshProUGUI textoPontuacao;
+    public GameObject gameOver;
     
     void Start()
     {
@@ -20,4 +22,13 @@ public class GameController : MonoBehaviour
         textoPontuacao.text = totalPontuacao.ToString();
     }
 
+    public void GameOver()
+    {
+        gameOver.SetActive(true);
+    }
+
+    public void ReiniciarJogo(string Nivel_2)
+    {
+        SceneManager.LoadScene(Nivel_2);
+    }
 }
