@@ -95,6 +95,12 @@ public class Player : MonoBehaviour
             GameController.instance.GameOver();
             Destroy(gameObject);
         }
+
+        if(collision.gameObject.tag == "Serra")
+        {
+            GameController.instance.GameOver();
+            Destroy(gameObject);
+        }
     }
 
     //Detectar se o player saiu do chão ou não
