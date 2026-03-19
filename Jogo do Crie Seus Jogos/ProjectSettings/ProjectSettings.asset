@@ -691,7 +691,13 @@ PlayerSettings:
   XboxOneOverrideIdentityName: 
   XboxOneOverrideIdentityPublisher: 
   vrEditorSettings: {}
-  cloudServicesEnabled: {}
+  cloudServicesEnabled:
+    Build: 0
+    Game Performance: 0
+    Legacy Analytics: 0
+    Purchasing: 0
+    UDP: 0
+    Unity Ads: 0
   luminIcon:
     m_Name: 
     m_ModelFolderPath: 
@@ -711,10 +717,10 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: 059a40d2-7cea-4ff9-840d-c87ff995e300
+  cloudProjectId: 88d27d4a-08d0-4840-bb4d-fcffa4d59d20
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: Jogo do Crie Seus Jogos
+  projectName: Jogo do Crie Seus Jogos (1)
   organizationId: santosfigueiredo269
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
