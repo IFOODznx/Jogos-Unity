@@ -7,20 +7,13 @@ public class Inimiigo : MonoBehaviour
 {
     private Rigidbody2D rig;
     private Animator anim;
-
     public float velocidade;
-
     public Transform direita;
     public Transform esquerda;
-
     public Transform naCabeca;
-
     public bool colisao;
-
     public LayerMask layer;
-
     public BoxCollider2D box;
-
     public CircleCollider2D circle;
 
     void Start()
@@ -41,14 +34,15 @@ public class Inimiigo : MonoBehaviour
             velocidade = -velocidade;
         }
     }
-
+    
+    bool playerDestruido = false;
     void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.tag == "Player")
         {
             float altura = collision.contacts[0].point.y - naCabeca.position.y;
 
-            if (altura > 0)
+            if (altura > 0 && !playerDestruido)
             {
                 collision.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 10, ForceMode2D.Impulse);
                 velocidade = 0;
@@ -56,7 +50,14 @@ public class Inimiigo : MonoBehaviour
                 box.enabled = false;
                 circle.enabled = false;
                 rig.bodyType = RigidbodyType2D.Kinematic;
+                
                 Destroy(gameObject, 0.33f);
+            }
+            else
+            {
+                playerDestruido = true;
+                GameController.instance.GameOver();
+                Destroy(collision.gameObject);
             }
         }
     }
