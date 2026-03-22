@@ -41,7 +41,6 @@ public class Inimiigo : MonoBehaviour
         if(collision.gameObject.tag == "Player")
         {
             float altura = collision.contacts[0].point.y - naCabeca.position.y;
-
             if (altura > 0 && !playerDestruido)
             {
                 collision.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 10, ForceMode2D.Impulse);
@@ -50,8 +49,8 @@ public class Inimiigo : MonoBehaviour
                 box.enabled = false;
                 circle.enabled = false;
                 rig.bodyType = RigidbodyType2D.Kinematic;
-                
                 Destroy(gameObject, 0.33f);
+
             }
             else
             {
@@ -60,5 +59,6 @@ public class Inimiigo : MonoBehaviour
                 Destroy(collision.gameObject);
             }
         }
+
     }
 }

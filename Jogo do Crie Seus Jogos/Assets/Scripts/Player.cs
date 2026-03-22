@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
     public bool isPulo;
     public bool puloDuplo;
     private Animator anim;
-
+    bool barrarPulo;
 
     void Start()
     {
@@ -59,7 +59,7 @@ public class Player : MonoBehaviour
     void Pulo()
     {
         //Pegar o input do player para pular e verificar se ele está no chão
-        if(Input.GetButtonDown("Jump"))
+        if(Input.GetButtonDown("Jump") && !barrarPulo)
         {
             if (!isPulo)
             {
@@ -110,6 +110,22 @@ public class Player : MonoBehaviour
         if(collision.gameObject.layer == 8)
         {
             isPulo = true;
+        }
+    }
+
+    void OnTriggerStay2D(Collider2D collision)
+    {
+        if(collision.gameObject.layer == 11)
+        {
+            barrarPulo = true;
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        if(collision.gameObject.layer == 11)
+        {
+            barrarPulo = false;
         }
     }
 }
